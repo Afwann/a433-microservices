@@ -1,0 +1,21 @@
+version: '2.2'
+
+services:
+  item-app:
+    image: waanwann/item-app:v1  # Gunakan image yang sudah dibuat sebelumnya
+    ports:
+      - "80:8080"  # Port mapping dari 80 di host ke 8080 di container
+    depends_on:
+      - item-db  # Pastikan item-db sudah diluncurkan sebelum item-app
+    restart: always  # Restart service secara otomatis jika gagal
+
+  item-db:
+    image: mongo:3 # Gunakan image mongo versi 3
+    restart: always   # Restart service secara otomatis jika gagal
+    ports:
+      - 27017:27017
+    volumes:
+      - app-db:/data/db  # Gunakan volume bernama app-db dengan target /data/db di container
+
+volumes:
+  app-db:

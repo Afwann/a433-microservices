@@ -12,8 +12,6 @@ services:
   item-db:
     image: mongo:3 # Gunakan image mongo versi 3
     restart: always   # Restart service secara otomatis jika gagal
-    ports:
-      - 27017:27017
     volumes:
       - app-db:/data/db  # Gunakan volume bernama app-db dengan target /data/db di container
 

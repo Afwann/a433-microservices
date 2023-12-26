@@ -1,4 +1,4 @@
-# Node JS port 14
+# Node JS versi 14
 FROM node:14 
 # Menentukan Working Directory pada container di /app
 WORKDIR /app 
